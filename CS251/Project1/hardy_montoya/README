@@ -1,0 +1,27 @@
+CS251 Project 1:   Hardy Montoya 
+hmontoya
+
+to compile a file:  javac -cp .:stdlib.jar:algs4.jar file.java
+
+to run: java -cp .:stdlib.jar:algs4.jar filename
+
+stdlib.jar and algs4.jar are required
+
+The implementations for WeightedQuickUnion used on Percolation.java and PercolationStats.java are different.
+
+The one on Percolation.java is simpler to understand, and was the first one I made, since it proofed easier to track back on mistakes
+and to comply with the orientation required. It's the one used for the visualizer as well.  At being slower, this implementation doesnt
+have a top and bottom 'node' that would speed up the union/connected methods, but this also helps it prevent backwash.
+
+The one for PercolationStats is less clear at first sight, and actually doesn't entirely comply with orientation.  It evaluates percolation
+from right to left, but it works exactly the same regardless, as we are opening random cells this time. 
+Without worrying about orientation, or about being easy to understand, it skips some irrelevant steps that allow it to run faster.
+
+Ultimately, backwash is prevented when it matters (visualization), as in any case, for it to happen, percolation has to have hapened already.
+Then, all classes still run as intended.
+
+When tested on lab machines, the slowest operation (500 30 slow) took barely under 4 minutes, with a rough time of 230.  The times present on the 
+pdf are from running it remotely, and therefore understandably slower.  However it SHOULD run in less than 4 minutes on the lab machine.
+
+
+
