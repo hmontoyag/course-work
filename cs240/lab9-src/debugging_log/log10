@@ -1,0 +1,184 @@
+Thu Apr 6 21:55:32 EDT 2017
++break main
+Breakpoint 1 at 0x401846: file TestMyString.cpp, line 150.
++run test1
+Starting program: /home/u99/hmontoya/cs240/lab9-src/TestMyString test1
+
+Breakpoint 1, main (argc=2, argv=0x7fffffffe788) at TestMyString.cpp:150
+150	  if (argc == 1) {
++n
+155	  if ( !strcmp(argv[1], "test1")) {
++n
+156	    test1();
++s
+test1 () at TestMyString.cpp:15
+15	test1() {
++n
+16	  const char *s1 = "Hello world";
++n
+17	  char * s2 = strdup(s1);
++n
+18	  MyString ms1(s2);
++s
+MyString::MyString (this=0x7fffffffe650, s=0x604010 "Hello world")
+    at MyString.cpp:47
+47	  initialize(s);
++list
+42	}
+43	
+44	// Create a MyString from a C string
+45	MyString::MyString(const char * s)
+46	{
+47	  initialize(s);
+48	}
+49	
+50	// Create a MyString from a copy of another string
+51	MyString::MyString(const MyString &s)
++s
+MyString::initialize (this=0x7fffffffe650, s=0x604010 "Hello world")
+    at MyString.cpp:30
+30	   int a = slength(s);
++s
+MyString::slength (this=0x7fffffffe650, s=0x604010 "Hello world")
+    at MyString.cpp:17
+17	  int i=0;
++list
+12	// My own implementation of strlen
+13	int
+14	MyString::slength(const char *s) const
+15	{
+16	  // Add implementation here
+17	  int i=0;
+18	  int cnt = 0;
+19	  for(i=0;s[i]!='\0';i++){
+20	    cnt++;
+21	  }
++n
+18	  int cnt = 0;
++n
+19	  for(i=0;s[i]!='\0';i++){
++n
+20	    cnt++;
++n
+19	  for(i=0;s[i]!='\0';i++){
++n
+20	    cnt++;
++n
+19	  for(i=0;s[i]!='\0';i++){
++n
+20	    cnt++;
++n
+19	  for(i=0;s[i]!='\0';i++){
++n
+20	    cnt++;
++n
+19	  for(i=0;s[i]!='\0';i++){
++n
+20	    cnt++;
++n
+19	  for(i=0;s[i]!='\0';i++){
++n
+20	    cnt++;
++n
+19	  for(i=0;s[i]!='\0';i++){
++n
+20	    cnt++;
++n
+19	  for(i=0;s[i]!='\0';i++){
++n
+20	    cnt++;
++n
+19	  for(i=0;s[i]!='\0';i++){
++n
+20	    cnt++;
++n
+19	  for(i=0;s[i]!='\0';i++){
++n
+20	    cnt++;
++n
+19	  for(i=0;s[i]!='\0';i++){
++n
+20	    cnt++;
++n
+19	  for(i=0;s[i]!='\0';i++){
++n
+22	  return cnt;
++n
+23	}
++n
+MyString::initialize (this=0x7fffffffe650, s=0x604010 "Hello world")
+    at MyString.cpp:32
+32	   char *_s = new char[a];
++print a
+$1 = 11
++print _s
+$2 = 0xc <error: Cannot access memory at address 0xc>
++n
+35	  int i =0;
++print _s
+$3 = 0x604030 ""
++n
+36	  for(i=0;i!=a;i++){
++n
+37	    _s[i]=s[i];
++n
+36	  for(i=0;i!=a;i++){
++print _s
+$4 = 0x604030 "H"
++n
+37	    _s[i]=s[i];
++n
+36	  for(i=0;i!=a;i++){
++n
+37	    _s[i]=s[i];
++n
+36	  for(i=0;i!=a;i++){
++n
+37	    _s[i]=s[i];
++n
+36	  for(i=0;i!=a;i++){
++n
+37	    _s[i]=s[i];
++n
+36	  for(i=0;i!=a;i++){
++print _s
+$5 = 0x604030 "Hello"
++n
+37	    _s[i]=s[i];
++n
+36	  for(i=0;i!=a;i++){
++n
+37	    _s[i]=s[i];
++n
+36	  for(i=0;i!=a;i++){
++n
+37	    _s[i]=s[i];
++print _s
+$6 = 0x604030 "Hello w"
++n
+36	  for(i=0;i!=a;i++){
++n
+37	    _s[i]=s[i];
++n
+36	  for(i=0;i!=a;i++){
++n
+37	    _s[i]=s[i];
++print _s
+$7 = 0x604030 "Hello wor"
++n
+36	  for(i=0;i!=a;i++){
++n
+37	    _s[i]=s[i];
++n
+36	  for(i=0;i!=a;i++){
++n
+39	  _s[a]='\0';
++n
+42	}
++n
+MyString::MyString (this=0x7fffffffe650, s=0x604010 "Hello world")
+    at MyString.cpp:48
+48	}
++print _s
+$8 = 0x7fffffffe7a0 "Y\352\377\377\377\177"
++q

@@ -1,0 +1,120 @@
+Thu Apr 6 23:03:30 EDT 2017
++break main
+Breakpoint 1 at 0x401846: file TestMyString.cpp, line 150.
++run test5
+Starting program: /home/u99/hmontoya/cs240/lab9-src/TestMyString test5
+
+Breakpoint 1, main (argc=2, argv=0x7fffffffe788) at TestMyString.cpp:150
+150	  if (argc == 1) {
++n
+155	  if ( !strcmp(argv[1], "test1")) {
++n
+158	  else if ( !strcmp(argv[1], "test2")) {
++n
+161	  else if ( !strcmp(argv[1], "test3")) {
++n
+164	  else if ( !strcmp(argv[1], "test4")) {
++n
+167	  else if ( !strcmp(argv[1], "test5")) {
++s
+168	    test5();
++s
+test5 () at TestMyString.cpp:58
+58	test5() {
++n
+59	  const char *s1 = "Hello world";
++n
+60	  char * s2 = strdup(s1);
++n
+61	  MyString ms1(s2);
++n
+62	  *s2 = '\0';
++n
+63	  MyString ms2;
++print ms2
+$1 = {_s = 0x7fffffffea53 "test5"}
++n
+64	  ms2 = ms1.substring(2,3);
++s
+MyString::substring (this=0x7fffffffe630, i=2, n=3) at MyString.cpp:85
+85	{
++list
+80	
+81	// Obtain a substring of at most n chars starting at location i
+82	// if i is larger than the length of the string return an empty string.
+83	MyString
+84	MyString::substring(int i, int n)
+85	{
+86	  // Add implementation here
+87	  int a = slength(_s);
+88	  // Make sure that i is not beyond the end of string
+89	  if(a<i){
++n
+87	  int a = slength(_s);
++n
+89	  if(a<i){
++print a
+$2 = 11
++print i
+$3 = 2
++n
+96	  MyString sub;
++print sub
+$4 = {_s = 0x7fffffffe620 "\200\346\377\377\377\177"}
++n
+98	  for(j=0;j!=n;j++){
++n
+99	    sub._s[j]=_s[i+j];
++n
+98	  for(j=0;j!=n;j++){
++print sub._s
+$5 = 0x604070 "l"
++print _s
+$6 = 0x604030 "Hello world"
++print _s[i+j]
+$7 = 108 'l'
++n
+99	    sub._s[j]=_s[i+j];
++print sub._s
+$8 = 0x604070 "l"
++n
+98	  for(j=0;j!=n;j++){
++print sub._s
+$9 = 0x604070 "ll"
++n
+99	    sub._s[j]=_s[i+j];
++n
+98	  for(j=0;j!=n;j++){
++n
+102	  return sub._s;
++n
+103	}
++print sub._s
+No symbol "sub" in current context.
++list
+98	  for(j=0;j!=n;j++){
+99	    sub._s[j]=_s[i+j];
+100	  }
+101	  // Return substring
+102	  return sub._s;
+103	}
+104	
+105	// Remove at most n chars starting at location i
+106	void
+107	MyString::remove(int i, int n)
++n
+test5 () at TestMyString.cpp:65
+65	  printf("substr(2,3) of \"%s\"=\"%s\"\n", ms1.cStr(), ms2.cStr());
++print ms2
+$10 = {_s = 0x604050 "llo"}
++n
+66	  assert(!strcmp(ms2.cStr(),"llo"));
++n
+67	  printf("Test 5 passed\n");
++n
+63	  MyString ms2;
++n
+67	  printf("Test 5 passed\n");
++clear
+No breakpoint at this line.
++q

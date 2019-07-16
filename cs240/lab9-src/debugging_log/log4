@@ -1,0 +1,33 @@
+Fri Mar 31 11:09:51 EDT 2017
++break main
+Breakpoint 1 at 0x401846: file TestMyString.cpp, line 150.
++run test1
+Starting program: /u/data/u99/hmontoya/cs240/lab9-src/TestMyString test1
+
+Breakpoint 1, main (argc=2, argv=0x7fffffffe3f8)
+    at TestMyString.cpp:150
+150	  if (argc == 1) {
++n
+155	  if ( !strcmp(argv[1], "test1")) {
++n
+156	    test1();
++s
+test1 () at TestMyString.cpp:15
+15	test1() {
++n
+16	  const char *s1 = "Hello world";
++n
+17	  char * s2 = strdup(s1);
++n
+18	  MyString ms1(s2);
++n
+19	  *s2 = '\0';
++print ms1
+$1 = {_s = 0x7fffffffe410 "g\347\377\377\377\177"}
++print &ms1
+$2 = (MyString *) 0x7fffffffe2c0
++print * ms1
+No symbol "operator*" in current context.
++print _s
+No symbol "_s" in current context.
++q

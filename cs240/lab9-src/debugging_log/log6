@@ -1,0 +1,102 @@
+Thu Apr 6 21:42:06 EDT 2017
++break main
+Breakpoint 1 at 0x401846: file TestMyString.cpp, line 150.
++run test1
+Starting program: /home/u99/hmontoya/cs240/lab9-src/TestMyString test1
+
+Breakpoint 1, main (argc=2, argv=0x7fffffffe788) at TestMyString.cpp:150
+150	  if (argc == 1) {
++n
+155	  if ( !strcmp(argv[1], "test1")) {
++n
+156	    test1();
++n
+
+Program received signal SIGABRT, Aborted.
+0x00007ffff724e2a7 in raise () from /lib64/libc.so.6
++n
+Single stepping until exit from function raise,
+which has no line number information.
+
+Program terminated with signal SIGABRT, Aborted.
+The program no longer exists.
++run test1
+Starting program: /home/u99/hmontoya/cs240/lab9-src/TestMyString test1
+
+Breakpoint 1, main (argc=2, argv=0x7fffffffe788) at TestMyString.cpp:150
+150	  if (argc == 1) {
++n
+155	  if ( !strcmp(argv[1], "test1")) {
++n
+156	    test1();
++j
+Argument required (starting address).
++n
+
+Program received signal SIGABRT, Aborted.
+0x00007ffff724e2a7 in raise () from /lib64/libc.so.6
++run test1
+Starting program: /home/u99/hmontoya/cs240/lab9-src/TestMyString test1
+
+Breakpoint 1, main (argc=2, argv=0x7fffffffe788) at TestMyString.cpp:150
+150	  if (argc == 1) {
++n
+155	  if ( !strcmp(argv[1], "test1")) {
++n
+156	    test1();
++s
+test1 () at TestMyString.cpp:15
+15	test1() {
++n
+16	  const char *s1 = "Hello world";
++n
+17	  char * s2 = strdup(s1);
++n
+18	  MyString ms1(s2);
++print s2
+$1 = 0x604010 "Hello world"
++print *s
+No symbol "s" in current context.
++print *s2
+$2 = 72 'H'
++print *(s2+1)
+$3 = 101 'e'
++all
+Undefined command: "all".  Try "help".
++n
+19	  *s2 = '\0';
++print ms1
+$4 = {_s = 0x7fffffffe7a0 "Y\352\377\377\377\177"}
++print _s
+No symbol "_s" in current context.
++n
+20	  assert( !strcmp(ms1.cStr(),s1 ));
++print ms1.cStr()
+$5 = 0x7fffffffe7a0 "Y\352\377\377\377\177"
++n
+
+Program received signal SIGABRT, Aborted.
+0x00007ffff724e2a7 in raise () from /lib64/libc.so.6
++run test1
+Starting program: /home/u99/hmontoya/cs240/lab9-src/TestMyString test1
+
+Breakpoint 1, main (argc=2, argv=0x7fffffffe788) at TestMyString.cpp:150
+150	  if (argc == 1) {
++n
+155	  if ( !strcmp(argv[1], "test1")) {
++n
+156	    test1();
++s
+test1 () at TestMyString.cpp:15
+15	test1() {
++n
+16	  const char *s1 = "Hello world";
++n
+17	  char * s2 = strdup(s1);
++n
+18	  MyString ms1(s2);
++n
+19	  *s2 = '\0';
++print ms1
+$6 = {_s = 0x7fffffffe7a0 "Y\352\377\377\377\177"}
++q

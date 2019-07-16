@@ -1,0 +1,53 @@
+Thu Apr 6 23:24:43 EDT 2017
++break main
+Breakpoint 1 at 0x401846: file TestMyString.cpp, line 150.
++run test8
+Starting program: /home/u99/hmontoya/cs240/lab9-src/TestMyString test8
+
+Breakpoint 1, main (argc=2, argv=0x7fffffffe788) at TestMyString.cpp:150
+150	  if (argc == 1) {
++n
+155	  if ( !strcmp(argv[1], "test1")) {
++n
+158	  else if ( !strcmp(argv[1], "test2")) {
++n
+161	  else if ( !strcmp(argv[1], "test3")) {
++n
+164	  else if ( !strcmp(argv[1], "test4")) {
++n
+167	  else if ( !strcmp(argv[1], "test5")) {
++n
+170	  else if ( !strcmp(argv[1], "test6")) {
++n
+173	  else if ( !strcmp(argv[1], "test7")) {
++n
+176	  else if ( !strcmp(argv[1], "test8")) {
++n
+177	    test8();
++s
+test8 () at TestMyString.cpp:96
+96	test8() {
++n
+97	  MyString ms1("Hello");
++n
+98	  MyString ms2("world");
++n
+99	  MyString ms3("Hello");
++print ms1
+$1 = {_s = 0x604010 "Hello"}
++print ms2
+$2 = {_s = 0x604030 "world"}
++print ms3
+$3 = {_s = 0x7fffffffea53 "test8"}
++n
+101	  assert(ms1!=ms2);
++print ms3
+$4 = {_s = 0x604050 "Hello"}
++print ms1!=ms2
+$5 = false
++n
+
+Program received signal SIGABRT, Aborted.
+0x00007ffff724e2a7 in raise () from /lib64/libc.so.6
++q
+Please answer y or n.

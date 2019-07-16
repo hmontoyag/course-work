@@ -1,0 +1,91 @@
+Fri Apr 7 01:44:58 EDT 2017
++break main
+Breakpoint 1 at 0x401368: file TestDLList.cpp, line 94.
++run test1
+Starting program: /home/u99/hmontoya/cs240/lab9-src/TestDLList test1
+
+Breakpoint 1, main (argc=2, argv=0x7fffffffe788)
+    at TestDLList.cpp:94
+94		if (argc < 2) {
++n
+99		if (strcmp(argv[1],"test1")==0) {
++n
+100			test1();
++s
+test1 () at TestDLList.cpp:9
+9	{
++list
+4	#include <assert.h>
+5	#include <string.h>
+6	#include <stdlib.h>
+7	
+8	void test1()
+9	{
+10	
+11		DLList list;
+12		list << 1 << 2 << 12 << 13 << 11 << 22;
+13		std::cout<<"List:"<<std::endl;
++n
+11		DLList list;
++n
+12		list << 1 << 2 << 12 << 13 << 11 << 22;
++print list
+$1 = {head = 0x604010}
++n
+13		std::cout<<"List:"<<std::endl;
++print list
+$2 = {head = 0x604010}
++n
+14		list.print();
++s
+DLList::print (this=0x7fffffffe660) at DLList.cpp:34
+34		DLNode * tmp = head;
++n
+35	        for(int i = 0; i!=2;i++){
++print tmp
+$3 = (DLNode *) 0x604010
++print head
+$4 = (DLNode *) 0x604010
++n
+36		  printf("%d\n",tmp->data);
++print tmp->data
+$5 = 0
++n
+37		  tmp = tmp->next;
++n
+35	        for(int i = 0; i!=2;i++){
++n
+36		  printf("%d\n",tmp->data);
++print tmp->data
+$6 = 22
++n
+37		  tmp = tmp->next;
++print tmp->data
+$7 = 22
++n
+35	        for(int i = 0; i!=2;i++){
++n
+40	}
++print->data
+Undefined command: "print->data".  Try "help".
++print tmp->data
+No symbol "tmp" in current context.
++n
+
+Program received signal SIGABRT, Aborted.
+0x00007ffff724e2a7 in raise () from /lib64/libc.so.6
++where
+#0  0x00007ffff724e2a7 in raise () from /lib64/libc.so.6
+#1  0x00007ffff724f6fa in abort () from /lib64/libc.so.6
+#2  0x00007ffff728d568 in __libc_message ()
+   from /lib64/libc.so.6
+#3  0x00007ffff7292e56 in malloc_printerr ()
+   from /lib64/libc.so.6
+#4  0x00007ffff729365e in _int_free () from /lib64/libc.so.6
+#5  0x00000000004015a8 in DLList::~DLList (
+    this=0x7fffffffe660, __in_chrg=<optimized out>)
+    at DLList.cpp:24
+#6  0x0000000000400c10 in test1 () at TestDLList.cpp:14
+#7  0x00000000004013b5 in main (argc=2, argv=0x7fffffffe788)
+    at TestDLList.cpp:100
++q

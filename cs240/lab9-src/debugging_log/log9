@@ -1,0 +1,126 @@
+Thu Apr 6 21:51:56 EDT 2017
++break main
+Breakpoint 1 at 0x401846: file TestMyString.cpp, line 150.
++run test1
+Starting program: /home/u99/hmontoya/cs240/lab9-src/TestMyString test1
+
+Breakpoint 1, main (argc=2, argv=0x7fffffffe788) at TestMyString.cpp:150
+150	  if (argc == 1) {
++n
+155	  if ( !strcmp(argv[1], "test1")) {
++n
+156	    test1();
++s
+test1 () at TestMyString.cpp:15
+15	test1() {
++n
+16	  const char *s1 = "Hello world";
++n
+17	  char * s2 = strdup(s1);
++n
+18	  MyString ms1(s2);
++s
+MyString::MyString (this=0x7fffffffe650, s=0x604010 "Hello world")
+    at MyString.cpp:47
+47	  initialize(s);
++s
+MyString::initialize (this=0x7fffffffe650, s=0x604010 "Hello world")
+    at MyString.cpp:30
+30	   int a = slength(s);
++print a
+$1 = 0
++n
+32	   char *_s = new char[a];
++print a
+$2 = 11
++print s
+$3 = 0x604010 "Hello world"
++list
+27	MyString::initialize(const char * s)
+28	{
+29	  // Add implementation
+30	   int a = slength(s);
+31	  // Allocate memory for _s.
+32	   char *_s = new char[a];
+33	
+34	  // Copy s into _s
+35	  int i =0;
+36	  for(i=0;i!=a;i++){
++n
+35	  int i =0;
++n
+36	  for(i=0;i!=a;i++){
++n
+37	    _s[i]='i';
++n
+36	  for(i=0;i!=a;i++){
++print _s
+$4 = 0x604030 "i"
++n
+37	    _s[i]='i';
++n
+36	  for(i=0;i!=a;i++){
++n
+37	    _s[i]='i';
++n
+36	  for(i=0;i!=a;i++){
++n
+37	    _s[i]='i';
++print )s
+A syntax error in expression, near `)s'.
++print_s
+Undefined command: "print_s".  Try "help".
++print _s
+$5 = 0x604030 "iii"
++n
+36	  for(i=0;i!=a;i++){
++n
+37	    _s[i]='i';
++n
+36	  for(i=0;i!=a;i++){
++n
+37	    _s[i]='i';
++n
+36	  for(i=0;i!=a;i++){
++n
+37	    _s[i]='i';
++n
+36	  for(i=0;i!=a;i++){
++n
+37	    _s[i]='i';
++n
+36	  for(i=0;i!=a;i++){
++n
+37	    _s[i]='i';
++n
+36	  for(i=0;i!=a;i++){
++n
+37	    _s[i]='i';
++n
+36	  for(i=0;i!=a;i++){
++n
+37	    _s[i]='i';
++n
+36	  for(i=0;i!=a;i++){
++j
+Argument required (starting address).
++n
+39	  _s[a+1]='\0';
++n
+42	}
++print _s
+$6 = 0x7fffffffe7a0 "Y\352\377\377\377\177"
++b
+Breakpoint 2 at 0x401ac4: file MyString.cpp, line 42.
++r
+Program not restarted.
++u
+MyString::MyString (this=0x7fffffffe650, s=0x604010 "Hello world")
+    at MyString.cpp:48
+48	}
++n
+test1 () at TestMyString.cpp:19
+19	  *s2 = '\0';
++n
+20	  assert( !strcmp(ms1.cStr(),s1 ));
++q

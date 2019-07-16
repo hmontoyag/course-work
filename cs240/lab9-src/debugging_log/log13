@@ -1,0 +1,101 @@
+Thu Apr 6 23:01:20 EDT 2017
++break main
+Breakpoint 1 at 0x401846: file TestMyString.cpp, line 150.
++run test4
+Starting program: /home/u99/hmontoya/cs240/lab9-src/TestMyString test4
+
+Breakpoint 1, main (argc=2, argv=0x7fffffffe788) at TestMyString.cpp:150
+150	  if (argc == 1) {
++q
+Not confirmed.
++run test5
+Starting program: /home/u99/hmontoya/cs240/lab9-src/TestMyString test5
+
+Breakpoint 1, main (argc=2, argv=0x7fffffffe788) at TestMyString.cpp:150
+150	  if (argc == 1) {
++n
+155	  if ( !strcmp(argv[1], "test1")) {
++n
+158	  else if ( !strcmp(argv[1], "test2")) {
++n
+161	  else if ( !strcmp(argv[1], "test3")) {
++n
+164	  else if ( !strcmp(argv[1], "test4")) {
++n
+167	  else if ( !strcmp(argv[1], "test5")) {
++n
+168	    test5();
++s
+test5 () at TestMyString.cpp:58
+58	test5() {
++n
+59	  const char *s1 = "Hello world";
++n
+60	  char * s2 = strdup(s1);
++n
+61	  MyString ms1(s2);
++n
+62	  *s2 = '\0';
++print ms1
+$1 = {_s = 0x604030 "Hello world"}
++n
+63	  MyString ms2;
++print ms2
+$2 = {_s = 0x7fffffffea53 "test5"}
++n
+64	  ms2 = ms1.substring(2,3);
++s
+MyString::substring (this=0x7fffffffe630, i=2, n=3) at MyString.cpp:85
+85	{
++list
+80	
+81	// Obtain a substring of at most n chars starting at location i
+82	// if i is larger than the length of the string return an empty string.
+83	MyString
+84	MyString::substring(int i, int n)
+85	{
+86	  // Add implementation here
+87	  int a = slength(_s);
+88	  // Make sure that i is not beyond the end of string
+89	  if(a>i){
++print i
+$3 = 2
++print n
+$4 = 3
++print a
+$5 = 0
++print )s
+A syntax error in expression, near `)s'.
++print _s
+$6 = 0x604030 "Hello world"
++print a
+$7 = 0
++n
+87	  int a = slength(_s);
++print a
+$8 = 32767
++n
+89	  if(a>i){
++print a
+$9 = 11
++list
+84	MyString::substring(int i, int n)
+85	{
+86	  // Add implementation here
+87	  int a = slength(_s);
+88	  // Make sure that i is not beyond the end of string
+89	  if(a>i){
+90	    return "";
+91	  }
+92	  // Allocate memory for substring
+93	  
++n
+90	    return "";
++n
+103	}
++n
+test5 () at TestMyString.cpp:65
+65	  printf("substr(2,3) of \"%s\"=\"%s\"\n", ms1.cStr(), ms2.cStr());
++:q
+Undefined command: "".  Try "help".
++q

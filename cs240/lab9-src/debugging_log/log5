@@ -1,0 +1,6 @@
+Thu Apr 6 21:41:36 EDT 2017
++break main
+No symbol table is loaded.  Use the "file" command.
++w
+Ambiguous command "w": watch, wh, whatis, where, while, while-stepping, winheight, ws.
++q

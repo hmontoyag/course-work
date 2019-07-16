@@ -1,0 +1,84 @@
+Fri Mar 31 10:36:00 EDT 2017
++break main
+Breakpoint 1 at 0x401846: file TestMyString.cpp, line 150.
++run test1
+Starting program: /u/data/u99/hmontoya/cs240/lab9-src/TestMyString test1
+
+Breakpoint 1, main (argc=2, argv=0x7fffffffe3f8)
+    at TestMyString.cpp:150
+150	  if (argc == 1) {
++n
+155	  if ( !strcmp(argv[1], "test1")) {
++n
+156	    test1();
++s
+test1 () at TestMyString.cpp:15
+15	test1() {
++n
+16	  const char *s1 = "Hello world";
++n
+17	  char * s2 = strdup(s1);
++print s2
+$1 = 0x7fffffffe761 "test1"
++print *s2
+$2 = 116 't'
++print s1
+$3 = 0x401d58 "Hello world"
++n
+18	  MyString ms1(s2);
++print s2
+$4 = 0x604010 "Hello world"
++print ms1
+$5 = {_s = 0x7fffffffe410 "g\347\377\377\377\177"}
++n
+19	  *s2 = '\0';
++print ms1
+$6 = {_s = 0x7fffffffe410 "g\347\377\377\377\177"}
++n
+20	  assert( !strcmp(ms1.cStr(),s1 ));
++print s1
+$7 = 0x401d58 "Hello world"
++print ms1
+$8 = {_s = 0x7fffffffe410 "g\347\377\377\377\177"}
++n
+
+Program received signal SIGABRT, Aborted.
+0x00007ffff724e2a7 in raise () from /lib64/libc.so.6
++run test2
+Starting program: /u/data/u99/hmontoya/cs240/lab9-src/TestMyString test2
+
+Breakpoint 1, main (argc=2, argv=0x7fffffffe3f8)
+    at TestMyString.cpp:150
+150	  if (argc == 1) {
++n
+155	  if ( !strcmp(argv[1], "test1")) {
++n
+158	  else if ( !strcmp(argv[1], "test2")) {
++n
+159	    test2();
++s
+test2 () at TestMyString.cpp:26
+26	test2() {
++n
+27	  const char *s1 = "Hello world";
++n
+28	  char * s2 = strdup(s1);
++n
+29	  MyString ms1(s2);
++n
+30	  MyString ms2(ms1);
++n
+31	  *s2 = '\0';
++print ms1
+$9 = {_s = 0x7fffffffe761 "test2"}
++print ms2
+$10 = {_s = 0x7fffffffe410 "g\347\377\377\377\177"}
++print *ms1
+No symbol "operator*" in current context.
++n
+32	  assert( !strcmp(ms2.cStr(),s1 ));
++n
+
+Program received signal SIGABRT, Aborted.
+0x00007ffff724e2a7 in raise () from /lib64/libc.so.6
++q
