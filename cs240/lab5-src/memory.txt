@@ -1,0 +1,14 @@
+Adress          Variable/Function    Section
+----------     ------------------- --------
+0x400606         foo                 Text
+0x40064e         main                Text
+0x4007a2         str                 Data
+0x601050         &a                  Heap
+0x601054         &le                 Data
+0x601084         &c                  Bss
+0x248f010        p                   Heap
+0x7ffc8c8b5194   &d                  Stack
+0x7ffc8c8b51b4   &b                  Stack
+0x7ffc8c8b51b8   &p                  Stack
+0x7ffc8c8b51c0   &str                Stack
+
