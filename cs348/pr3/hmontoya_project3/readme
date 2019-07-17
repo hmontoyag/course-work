@@ -1,0 +1,8 @@
+CS 348 -- Project 3
+Name: Hardy Montoya
+Login: hmontoya
+email: hmontoya@purdue.edu
+
+Sometimes the run.sh seems to fail. however, running the required compiling and run lines inside it on terminal work just fine.
+
+I took the assumption that any table used for INSERT or SELECT would have the last two columns be encryptedcolumn and ownerrole

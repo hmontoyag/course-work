@@ -1,0 +1,145 @@
+hmontoya - CS348 - Project 4
+
+TASK 1 ----------------------------------------------------------------
+
+*Query 1
+	-Count: 436007
+	Stage 1:
+	
+		- Cumulative CPU: 16.6 sec
+		- HDFS Read: 534143356
+		- HDFS Write: 7
+		- Time Taken: 25.254 sec
+
+*Query 2
+	-Count: 15092
+	Stage 1:
+		- Cumulative CPU: 15.58 sec
+		- HDFS Read: 534143857
+		- HDFS Write: 6
+		- Time Taken: 26.038 sec
+		
+*Query 3
+	-Count: 163800
+	Stage 1:
+		- Cumulative CPU: 16.88 sec
+		- HDFS Read: 534144664
+		- HDFS Write: 7
+		- Time Taken: 27.266 sec
+		
+TASK 2 ----------------------------------------------------------------
+
+No reducer is needed because the operation performed is basically a SELECT * type, meaning no intermediate data is produced by the mapper as it can easily process the data and the desired operation via key/value pairs and will not require any additional logic operations from a reducer before achieving the desired result.
+
+*Query 1:
+	-Count: 436007
+	Stage 1:
+		
+		- Cumulative CPU: 6.29 sec
+		- HDFS Read: 40967417
+		- HDFS Write: 7
+		- Time Taken: 22.06 sec
+		
+*Query 2
+	-Count: 15092
+	Stage 1:
+		- Cumulative CPU: 5.12 sec
+		- HDFS Read: 40919482
+		- HDFS Write: 6
+		- Time Taken: 22.098 sec
+				
+*Query 3
+	-Count: 163800
+	Stage 1:
+		- Cumulative CPU: 5.14 sec
+		- HDFS Read: 43445091
+		- HDFS Write: 7
+		- Time Taken: 23.005 sec
+		
+* The cumulative CPU time is significantly less on the partitioned data.
+
+* The time taken is less also, but the difference is not as great as for the cpu time.
+
+* Since all 3 queries fetch data based on 'month' which is the column on which the partition is based on, the search is better optimized for them once the table is organized with the partition as the query only needs to check inside the corresponding file for the month required.
+
+
+TASK 3 ----------------------------------------------------------------
+
+I. dayOfMonth partition ====================
+
+create table flights_partitioned_daymonth (Year int, Month int, dayOfWeek int, depTime int, CRSDepTime int, arrTime int, CRSArrTime int, uniqueCarrier string, flightNum int, tailNum int, actualElapsedTime int, CRSElapsedTime int, airTime int, arrDelay int, depDelay int, origin string, dest string, distance int, taxiIn int, taxiOut int, cancelled int, cancellationCode string, diverted int, carrierDelay int, weatherDelay int, NASDelay int, securityDelay int, lateAircraftDelay int) partitioned by (dayOfMonth int);
+
+insert into table flights_partitioned_daymonth partition(dayofmonth) select year, month, dayofweek, deptime, crsdeptime, arrtime, crsarrtime, uniquecarrier, flightnum, tailnum, actualelapsedtime, crselapsedtime, airtime, arrdelay, depdelay, origin, dest, distance, taxiin, taxiout, cancelled, cancellationcode, diverted, carrierdelay, weatherdelay, nasdelay, securitydelay, lateaircraftdelay, dayofmonth from flights;
+
+*Query 1:
+	-Count: 436007
+	Stage 1:
+		
+		- Cumulative CPU: 42.99 sec
+		- HDFS Read: 500043901
+		- HDFS Write: 7
+		- Time Taken: 27.186 sec
+
+*Query 2
+	-Count: 15092
+	Stage 1:
+		- Cumulative CPU: 4.84 sec
+		- HDFS Read: 16261983
+		- HDFS Write: 6
+		- Time Taken: 23.09 sec
+
+*Query 3
+	-Count: 163800
+	Stage 1:
+		- Cumulative CPU: 26.8 sec
+		- HDFS Read: 181119106
+		- HDFS Write: 7
+		- Time Taken: 26.591 sec
+
+
+II. month AND dayOfMonth partition ====================
+
+create table flights_partitioned_both (Year int, dayOfWeek int, depTime int, CRSDepTime int, arrTime int, CRSArrTime int, uniqueCarrier string, flightNum int, tailNum int, actualElapsedTime int, CRSElapsedTime int, airTime int, arrDelay int, depDelay int, origin string, dest string, distance int, taxiIn int, taxiOut int, cancelled int, cancellationCode string, diverted int, carrierDelay int, weatherDelay int, NASDelay int, securityDelay int, lateAircraftDelay int) partitioned by (month int, dayOfMonth int);
+
+insert into table flights_partitioned_both partition(month, dayofmonth) select year, dayofweek, deptime, crsdeptime, arrtime, crsarrtime, uniquecarrier, flightnum, tailnum, actualelapsedtime, crselapsedtime, airtime, arrdelay, depdelay, origin, dest, distance, taxiin, taxiout, cancelled, cancellationcode, diverted, carrierdelay, weatherdelay, nasdelay, securitydelay, lateaircraftdelay, month, dayofmonth from flights;
+
+*Query 1:
+	-Count: 436007
+	Stage 1:
+		
+		- Cumulative CPU: 20.3 sec
+		- HDFS Read: 39914217
+		- HDFS Write: 7
+		- Time Taken: 25.089 sec
+
+*Query 2
+	-Count: 15092
+	Stage 1:
+		- Cumulative CPU: 3.71 sec
+		- HDFS Read: 1388408
+		- HDFS Write: 6
+		- Time Taken: 23.25 sec
+
+*Query 3
+	-Count: 163800
+	Stage 1:
+		- Cumulative CPU: 6.34 sec
+		- HDFS Read: 14970895
+		- HDFS Write: 7
+		- Time Taken: 24.189 sec
+		
+TASK 4 ----------------------------------------------------------------
+
+date +"%T"; cat /home/data/1996_noheader.csv | awk -F',' '$2== "8" {print $1}' | wc -l; date +"%T" 
+
+	-Count: 462294
+	-Runtime: 3 sec
+
+select count(*) from flights where month=8;
+
+	-Count: 462294
+	-Runtime: 27.576
+	
+The runtime is much slower inside Hive.  This is probably because the amount of data is not enough to make up for the extra overhead involved with running the queries in hive when compared to the command in terminal, which has considerable less overhead but overall takes more time than the query in processing data, so if the amount of data was great enough, the query in hive would become faster than the command in terminal.  Hive would basically be more scalable towards larger amounts of data.
+
+		

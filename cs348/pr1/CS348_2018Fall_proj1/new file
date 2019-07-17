@@ -1,0 +1,20 @@
+declare
+    total integer;
+    pid integer;
+    ordertotal integer;
+    pname varchar(30);
+    cursor c1 is
+     select retailername, retailerid, address from retailers order by retailername asc;
+begin
+  for x in c1 loop
+  select count(*) into total from orders where retailerid=x.retailerid;
+  select productid, cc into pid, ordertotal from (select productid, sum(orders.count) as cc from orders where retailerid=1 group by productid order by cc desc) where rownum=1;
+  select productname into pname from products where productid = pid;
+  dbms_output.put_line('Retailer Name: '||x.retailername);
+  dbms_output.put_line('Retailer Address: '||x.address);
+  dbms_output.put_line('Retailer Total Orders: '||total);
+  dbms_output.put_line('Most Popular Product: '||pname);
+  dbms_output.put_line('Total Sold: ' ||);
+  
+  end loop;
+end;

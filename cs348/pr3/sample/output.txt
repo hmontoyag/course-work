@@ -1,0 +1,14 @@
+1: LOGIN admin pass
+Login successful
+
+2: CREATE ROLE ROLECUSTOMER CK
+Role created successfully
+
+
+24: LOGIN USER2 PASS2
+Login successful
+
+25: SELECT * FROM Products
+Authorization failure
+
+26: QUIT
