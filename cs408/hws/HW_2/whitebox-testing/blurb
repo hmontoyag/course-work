@@ -1,0 +1,513 @@
+=^.^=
+> 77
+Invalid menu. Try again.
+> 77
+Invalid menu. Try again.
+> 7
+Invalid menu. Try again.
+> 2
+=^.^=
+> 22
+Invalid menu. Try again.
+> 
+Invalid menu. Try again.
+> 2
+=^.^=
+> 2
+=^.^=
+> 2
+=^.^=
+> 2
+=^.^=
+> 2
+=^.^=
+> 2
+=^.^=
+> 2
+=^.^=
+> 777
+=^.^=
+> 3
+
+
+=^.^=// Bye!
+
+data 66 $ ./meow < input0.txt
+MEOW Pretty Printer v0.1
+=======================
+ 1. Import MEOW
+ 2. Print MEOW
+ 3. Quit
+=======================
+> data 67 $ ./meow 
+MEOW Pretty Printer v0.1
+=======================
+ 1. Import MEOW
+ 2. Print MEOW
+ 3. Quit
+=======================
+> 3
+
+
+=^.^=// Bye!
+
+data 68 $ ./meow < input0.txt 
+MEOW Pretty Printer v0.1
+=======================
+ 1. Import MEOW
+ 2. Print MEOW
+ 3. Quit
+=======================
+> data 69 $ ./meow 
+MEOW Pretty Printer v0.1
+=======================
+ 1. Import MEOW
+ 2. Print MEOW
+ 3. Quit
+=======================
+> 1
+MEOW? =^.^==^.^==^.^=
+> 2
+=^.^=
+> 2 2 2
+=^.^=
+> 777
+=^.^=
+> 2 2 2 2
+=^.^=
+> 777
+=^.^=
+> 2222
+Invalid menu. Try again.
+> 2^[[B2^[[B2^[[B2^[[B2
+=^.^=
+> =^.^=
+> 2^[[B2^[[B2^[[B2^[[B2^[[B2
+=^.^=
+> =^.^=
+> 777
+=^.^=
+> 2^[[C2^[[B2^[[B2^[[B2^[[B2^[[C2
+=^.^=
+> =^.^=
+> 2\n2\n2\n2
+=^.^=
+> 2,2,2
+=^.^=
+> 777
+=^.^=
+> 2	2	2	
+=^.^=
+> 2-2-2
+=^.^=
+> 2^[[D2^[[D2^[[D2
+=^.^=
+> 2\r2
+=^.^=
+> 2\r2\r2\r2
+=^.^=
+> 2^[[C2^[[B2^[[A2
+=^.^=
+> 2^[[C2
+=^.^=
+> 2^[[C2^[[C2^[[C2
+=^.^=
+> 2^[[C2^[[C2^[[C2^[[C2^[[C2^[[C2
+=^.^=
+> =^.^=
+> 2^[[C2^[[C2^[[C2^[[C2^[[C2^[[C2^[[C2^[[C2^[[C2^[[C2^[[C2^[[C2^[[C2
+=^.^=
+> =^.^=
+> =^.^=
+> =^.^=
+> 777
+=^.^=
+> 2^[[C2^[[C2^[[C2^[[C2^[[C2^[[C2^[[C2^[[C2^[[C2^[[C2^[[C2^[[C2^[[C2^[[C2
+=^.^=
+> =^.^=
+> =^.^=
+> =^.^=
+> 777
+=^.^=
+> 3
+
+
+=^.^=// Bye!
+
+data 70 $ ./meow 
+MEOW Pretty Printer v0.1
+=======================
+ 1. Import MEOW
+ 2. Print MEOW
+ 3. Quit
+=======================
+> 1
+MEOW? "cat
+> 2
+"cat"
+> 1
+MEOW? {"cat":"poo"}
+> 2
+{
+  "cat": "poo"
+}
+> 1
+MEOW? ["cat":"pooo"]
+Error!
+> 1
+MEOW? ["cat":12]
+Error!
+> 1    
+MEOW? ["cat":12]
+Error!
+> 1
+MEOW? ["cat",123]
+> 1
+MEOW? trie
+Error!
+> 1
+MEOW? 
+Error!
+> 1
+MEOW? null
+> 2
+null
+> 2
+null
+> 3
+
+
+=^.^=// Bye!
+
+data 71 $ ./meow 
+MEOW Pretty Printer v0.1
+=======================
+ 1. Import MEOW
+ 2. Print MEOW
+ 3. Quit
+=======================
+> 1
+MEOW? ^[[D^[[D
+Error!
+> 3
+
+
+=^.^=// Bye!
+
+data 72 $ \r
+-bash: r: command not found
+data 73 $ \r\n
+-bash: rn: command not found
+data 74 $ echo \r
+r
+data 75 $ echo 
+
+data 76 $ echo \r\r
+rr
+data 77 $ echo -n
+data 78 $ ./meow -n
+MEOW Pretty Printer v0.1
+=======================
+ 1. Import MEOW
+ 2. Print MEOW
+ 3. Quit
+=======================
+> 1
+MEOW? 
+Error!
+> 1 -n
+MEOW? 1 123413r1
+> 1
+MEOW? -n
+> s
+Invalid menu. Try again.
+> 1
+MEOW? 2
+> 1
+MEOW? asda
+Error!
+> 1
+MEOW? -asdasd
+> 3
+
+
+=^.^=// Bye!
+
+data 79 $ ./meow
+MEOW Pretty Printer v0.1
+=======================
+ 1. Import MEOW
+ 2. Print MEOW
+ 3. Quit
+=======================
+> 3
+
+
+=^.^=// Bye!
+
+data 80 $ ./meow
+MEOW Pretty Printer v0.1
+=======================
+ 1. Import MEOW
+ 2. Print MEOW
+ 3. Quit
+=======================
+> 1
+MEOW? "cat"
+> 1
+MEOW? 12
+> 1
+MEOW? {"cat":"as"}
+> q
+Invalid menu. Try again.
+> 1 
+MEOW? ["ca",12]
+> 1\n12
+MEOW? true
+> 
+Invalid menu. Try again.
+> 1\r12
+MEOW? true
+> 
+Invalid menu. Try again.
+> 
+Invalid menu. Try again.
+> 1
+MEOW? \r
+Error!
+> 1
+MEOW? null
+> 1
+MEOW? =^.^=
+> 2
+=^.^=
+> 3
+
+
+=^.^=// Bye!
+
+data 81 $ ./meow
+MEOW Pretty Printer v0.1
+=======================
+ 1. Import MEOW
+ 2. Print MEOW
+ 3. Quit
+=======================
+> 777
+Error!
+> 3
+
+
+=^.^=// Bye!
+
+data 82 $ ./meow
+MEOW Pretty Printer v0.1
+=======================
+ 1. Import MEOW
+ 2. Print MEOW
+ 3. Quit
+=======================
+> 1
+MEOW? =^.^=\r
+> 2
+=^.^=
+> -n
+Invalid menu. Try again.
+> 
+Invalid menu. Try again.
+> 2
+=^.^=
+> 
+Invalid menu. Try again.
+> 2\r2\r2\r2
+=^.^=
+> 
+Invalid menu. Try again.
+> 2 -n
+=^.^=
+> -n 2
+Invalid menu. Try again.
+> 2^[[C2^[[C2^[[C2
+=^.^=
+> 2^[[C2^[[C2^[[C2^[[C2
+=^.^=
+> =^.^=
+> 2^[[C2^[[C2^[[C2^[[C2^[[C2^[[C2^[[C2^[[C2^[[C2^[[C2^[[C2^[[C2^[[C2^[[C2
+=^.^=
+> =^.^=
+> =^.^=
+> =^.^=
+> 777
+=^.^=
+> 3
+
+
+=^.^=// Bye!
+
+data 83 $ ./meow
+MEOW Pretty Printer v0.1
+=======================
+ 1. Import MEOW
+ 2. Print MEOW
+ 3. Quit
+=======================
+> 2
+Error!
+> 3
+
+
+=^.^=// Bye!
+
+data 84 $ ./meow < input1.txt
+MEOW Pretty Printer v0.1
+=======================
+ 1. Import MEOW
+ 2. Print MEOW
+ 3. Quit
+=======================
+> MEOW? > Invalid menu. Try again.
+> Invalid menu. Try again.
+> Invalid menu. Try again.
+> Invalid menu. Try again.
+> Invalid menu. Try again.
+> Invalid menu. Try again.
+> Invalid menu. Try again.
+> Invalid menu. Try again.
+> Invalid menu. Try again.
+> Invalid menu. Try again.
+> Invalid menu. Try again.
+> Invalid menu. Try again.
+> Invalid menu. Try again.
+> Invalid menu. Try again.
+> Invalid menu. Try again.
+> Invalid menu. Try again.
+> Invalid menu. Try again.
+> Invalid menu. Try again.
+> Invalid menu. Try again.
+> Invalid menu. Try again.
+> Invalid menu. Try again.
+> Invalid menu. Try again.
+> Invalid menu. Try again.
+> Invalid menu. Try again.
+> Invalid menu. Try again.
+> Invalid menu. Try again.
+> Invalid menu. Try again.
+> Invalid menu. Try again.
+> Invalid menu. Try again.
+> Invalid menu. Try again.
+> Invalid menu. Try again.
+> Invalid menu. Try again.
+> Invalid menu. Try again.
+> Invalid menu. Try again.
+> Invalid menu. Try again.
+> Invalid menu. Try again.
+> Invalid menu. Try again.
+> Invalid menu. Try again.
+> Invalid menu. Try again.
+> Invalid menu. Try again.
+> Invalid menu. Try again.
+> Invalid menu. Try again.
+> Invalid menu. Try again.
+> Invalid menu. Try again.
+> Invalid menu. Try again.
+> Invalid menu. Try again.
+> Invalid menu. Try again.
+> Invalid menu. Try again.
+> Invalid menu. Try again.
+> Invalid menu. Try again.
+> Invalid menu. Try again.
+> -1
+> 
+
+=^.^=// Bye!
+
+data 85 $ ./meow < input1.tx
+-bash: input1.tx: No such file or directory
+data 86 $ ./meow
+MEOW Pretty Printer v0.1
+=======================
+ 1. Import MEOW
+ 2. Print MEOW
+ 3. Quit
+=======================
+> 1|2
+MEOW? 2
+> 1
+MEOW? 2
+> 2
+2
+> 1
+MEOW? 1|2
+> 2
+1
+> 1
+MEOW? 2|1
+> 2
+2
+> 1
+MEOW? \n
+Error!
+> 2
+Error!
+> 1
+MEOW? echo n
+Error!
+> 1
+MEOW? -n\n
+> 1-n
+MEOW? -n
+> 2
+0
+> 2
+0
+> 2
+0
+> 2
+0
+> 2
+0
+> 2
+0
+> 2
+0
+> 3
+
+
+=^.^=// Bye!
+
+data 87 $ ./meow
+MEOW Pretty Printer v0.1
+=======================
+ 1. Import MEOW
+ 2. Print MEOW
+ 3. Quit
+=======================
+> `
+Invalid menu. Try again.
+> 1
+MEOW? ^C
+data 88 $ ./meow
+MEOW Pretty Printer v0.1
+=======================
+ 1. Import MEOW
+ 2. Print MEOW
+ 3. Quit
+=======================
+> 1
+MEOW? ^C
+Error!
+> 1
+MEOW? ^[[D^[[D^[[D^[[D
+Error!
+> 1^[[D^[[D^[[D^[[D^[[D^[[D^[[D^[[D^[[D^[[D^[[D^[[D^[[D^[[D
+MEOW? Error!
+> 1
+MEOW? ^[[D^[[D^[[D^[[D^[[D^[[D^[[D^[[D^[[D^[[D^[[D^[[D^[[D^[[D^[[D^[[D^[[D
+Error!
+> 3
+
+
+=^.^=// Bye!
+
+data 89 $ 
+

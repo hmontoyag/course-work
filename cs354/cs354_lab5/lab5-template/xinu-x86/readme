@@ -1,0 +1,3 @@
+pipe can communicate properly through itself, but shell isnt working properly.
+
+uncommenting prints in put and get show that the pipe does get the output/input of the commands

@@ -1,0 +1,4 @@
+<div fxLayout="row">
+    <app-event-list fxFlex="50%" [eventList]="events"></app-event-list>
+    <app-new-event fxFlex="50%" (newEvent)="addEvent($event)"></app-new-event>
+</div>

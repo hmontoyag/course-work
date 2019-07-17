@@ -1,0 +1,21 @@
+.btn-danger{
+    height:30px;
+    width: 20px;
+    text-align: center;
+    font-size: 9;
+    padding: 3px 3px;
+    font-size: 10px;
+    border-radius: 20%;
+}
+
+
+#searchBar{
+   
+ 
+    width: 100%; 
+    font-size: 16px; 
+    padding: 12px 20px 12px 40px; 
+    border: 1px solid #ddd; 
+    margin-bottom: 12px; 
+
+}

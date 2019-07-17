@@ -1,0 +1,12 @@
+<mat-card class="event-card">
+  <mat-card-title>Event List</mat-card-title>
+  <mat-card-content>
+    <mat-list role="list">
+      <div *ngFor="let event of eventList">
+        <mat-list-item role="listitem">{{event.name}}<button mat-raised-button (click)="removeItem(event)">Remove</button></mat-list-item>
+        <mat-divider></mat-divider>
+      </div>
+    </mat-list>
+  </mat-card-content>
+</mat-card>
+

@@ -1,0 +1,107 @@
+Montoya, Hardy
+/*** *** *** ** ** ** ** *** ***/
+ Changes from v.1:
+ 
+ 	* First, all of the suggestions.  For increment/decrement, I went with them reducing/adding a whole 1 so:		++(x/y) ==> ((x+y)/y)
+ 									  For the getters/setters, I removed them.  Their utility was not needed, and for all purposes of printing
+ 									  or testing, printFraction() and getFraction() suffice, returning "1/2\n" or "1/2" depending on the need.
+ 	* In doing the asignment operators I noticed a double print when I tested, and that led me to decide to remove the printing from operations, instead now
+ 	  to see output in console you would call printFraction() after doing an operation or assignment.  The data stored in these fractions isn't really all
+ 	  too important, but still now it cannot be directly retrieved as ints, and only can be formatted as a fraction (which is totally ok, as thats the point of the class).
+ 	* Some more testing for assignment ops.
+
+
+
+/*** *** *** ** ** ** ** *** ***/
+
+1. to compile:   =======================================================================
+	make
+	
+	
+	This produces execs.: 
+		Fractions  (exec that showcases some functionality from Fractions, its what a user would get)
+		testAdd (addition)
+		testSubstract (substraction)
+		testMultiply (multiply)
+		testDivide (division)
+		testCompare (compare)
+		testEquival (equivalency)
+		
+		They are executed by typing them into shell:
+		(in my environment:)
+		data $ Fractions
+		data $ test1
+		(etc)
+		
+		
+***************************************************************************************
+****	The Fraction class itself is made of Fraction.cpp and Fraction.hpp.      ******
+***************************************************************************************	
+	
+		* main.cpp is used for Fractions exec	
+			
+2. Design  =======================================================================
+	
+*	I decided on a compromise between robustness, objective correctnes, flexibility, and considering the time constraints.
+	For example, I could've allowed fractions to be inputted in more formats (3.2; 4\n3\n; ...) but this ultimately resulted in the same results
+	down the road, and I didn't think it offered enough positives just by being more flexible as to merit the time consumption on handling said inputs accordingly.
+	
+*	For that, the Fraction class allows utilizing Fraction objects, each with operations allowd to it. A Fraction x uses functions to operate on itself, then for example
+	x->add(y), adds a Fraction y into x, and x->compare(y), compare y to x.  This is important also for operations where order matters (x->divide(y), divide x by y).
+	
+*	In fact, input handling for the showcase exec Fractions slowed me down considerably, I noticed that I hadn't dealt with taking input from cl in a lot of time,
+	and validating it so the program wouldnt exit/crash when it received a wrong input for int or long took a bit. 
+	Currently Fractions exec takes valid input if found, even if 'rubbish' is found after:
+		For example, for the initial selection in Fractions, 12 becomes 1, 10 is 10, 10 asdaw is 10, 1asda is 1, so on.
+		When requestin fractions, it does enforce the fraction format for the beggining, but 12/3asdaw is accepted as 12/3, so on.
+	
+*	In terms of overflow, I could have either made bigger variables (long long), limited input size and artificially (e.g use max 4 digit operands) prevent overflow in some cases
+	(which could have still been reached), or preventing only operations that would actually overflow from taking place, which I did.  This does cut off some operations 
+	(power most notably, as it doesnt return unless all the operation was able to complete, but this is also what happens if you try to do x^y in a calculator and it overflows),
+	but I think allows the class to be more robust in preventing undefined behavior.
+	
+*	A simple decision was to always reduce fractions (except when printing them in Comparison and Equivalency), and to shift the signs so -x/-y would be x/y, and x/-y would be -x/y. 
+	That was done for readability.  Comparison and Equivalency do not alter the fractions beyond adjusting signs (no reduction), 
+	as I imagined the whole point of those operations is to be able to distinguish the fractions
+	inputted.
+	
+*	The conversion ones are pretty straightforward.
+	Fraction to decimal does not even alter the fraction, since it cannot store a decimal in the fraction object.
+	Decimal to fraction does set the result as the value for the fraction. It also limits the precision to avoid an infinite loop when trying to convert periodical decimals, or near. (e.g 0.33333333333333333)
+	This does mean that if you give them the mentioned example, it won't convert it into 1/3, this would require checks for too many possibilities of conversion.
+	Instead it likely will be in the form 3333333333/10000000000, which technically does represent the given number (the program has no way of knowing you meant 0.333333..... instead of 0.333333).
+	
+	
+
+
+3. Tests  =======================================================================
+
+	test executables are named after the number that calls them in Fraction
+	tests are fairly straightforward, giving them a simple operation for which its very easy to know the answer without a computer (1/2 + 3/2)
+	this still covers edge cases properly as the equivalence partitioning of the possible inputs shouldnt differentiate between things like 1 and 10000, except
+	in the case of overflow, which is also tested to see if the class detects it properly.
+	
+	
+	
+	In some cases, some have less tests than might seem needed becuse of how the functions have been implemented.
+	
+	
+	* Substraction is really a->add(-b)
+	* Division is  a->division(n/d) ==> a->multiply(d/n) as long as n not 0
+	* Power is loop for a->multiply(b)
+	* Latter functions dont need to test for invalid input as they all build utilizing the same functions.
+	
+	Power in fact has no test file, as it just calls multiply several times. It does not store a "last valid value" in case of overflow,
+	it just warns that the operation would overflow, as it is considered a single operation just as it would work in a calculator.
+	
+	Reduction also has no tests, as all arithmetic functions call it, and in their tests the results are expected to be reduced, showing that
+	reduction works correctly or not.
+	
+	Conversions work with c++ basic arithmetic operating on the n/d utilizing basic math rules. It is also sometimes hard to predict the result since fractions that convert to periodical
+	decimals, and decimals that approximate periodical ones, have slightly unprecise results.
+	
+ 
+
+	
+
+

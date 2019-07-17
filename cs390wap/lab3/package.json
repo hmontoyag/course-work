@@ -1,0 +1,15 @@
+{
+  "name": "lab3",
+  "version": "1.0.0",
+  "description": "lab3",
+  "main": "index.js",
+  "scripts": {
+    "test": "test!"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4"
+  }
+}

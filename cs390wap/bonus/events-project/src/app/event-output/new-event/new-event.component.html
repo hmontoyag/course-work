@@ -1,0 +1,16 @@
+<mat-card>
+  <mat-card-title>New Event</mat-card-title>
+  <mat-card-content>
+    <form [formGroup]="newEventGroup" (ngSubmit)="addEvent()">
+      <mat-form-field>
+        <input matInput formControlName="name" placeholder="New Event">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput [matDatepicker]="picker" placeholder="Choose a date" formControlName="date">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <button mat-raised-button [disabled]="newEventGroup.invalid">Add Event</button>
+    </form>
+  </mat-card-content>
+</mat-card>
