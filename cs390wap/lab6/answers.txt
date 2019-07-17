@@ -1,7 +1,0 @@
-Operators Used:
-	
-	- debouncedTime(400)
-		To ensure that changes only registers if they are 400ms apart from the last one
-
-	- distinctUntilChanged()
-		To ensure that the GET is only called if the value in search bar is different than before

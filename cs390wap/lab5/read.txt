@@ -1,2 +1,0 @@
-MovieList compoment still exists but everything works without using it, as
-per required by the handout.  It can in fact has its text deleted without causing issues.  Deleting entirely tho might create issues with some imports I might have forgotteen to delete.:

@@ -1,4 +1,0 @@
-Missing funct.:
- - proper item-detail -> when endpoint is hit, it loads the html content in the .js, and hence an exception happens
-
- - search -> items/:id always recieves items/search[...] with search[...] as the id, and then reports item not found.
